@@ -1,8 +1,9 @@
-from repositories.people_repository import peopleRepository
 from entities.response_entity import ResponseEntity
 from entities.message_entity import MessageEntity
 from facades.person_facade import personFacade
 from responses import responses
+
+from people_repository.people_repository import peopleRepository
 
 import traceback
 

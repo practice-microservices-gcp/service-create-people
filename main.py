@@ -1,7 +1,7 @@
-import flask
-
 from controllers.create_person_controller import createPerson
+from response_decorator.response_decorator import http_response
 
+@http_response
 def create_person(request):
     name = None
     surname = None
@@ -18,13 +18,4 @@ def create_person(request):
     if body and 'email' in body:
         email = body['email']
 
-    response = createPerson(name, surname, email)
-
-    web_response = flask.Response(
-        response.body.to_json(),
-        status=response.code
-    )
-
-    web_response.headers['Content-Type'] = 'application/json'
-
-    return web_response
+    return createPerson(name, surname, email)
